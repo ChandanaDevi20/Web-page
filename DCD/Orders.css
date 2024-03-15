@@ -1,0 +1,68 @@
+*{
+	margin :0;
+	padding: 0;	
+}
+body
+{
+    background-image:url("https://img.freepik.com/free-photo/shopping-bag-cart_23-2148879372.jpg?size=626&ext=jpg&ga=GA1.1.735520172.1710374400&semt=ais");
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: red;
+    border-radius: 5px;
+	position: absolute;
+  }
+  h1 {
+    text-align: center;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  th {
+    color: black;
+  }
+  .btn {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color:grey;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background-color:navy;
+  }
+  .modal
+  {
+    text-align: center;
+    padding: 280px;
+	max-width: 1500px;
+    border: 20px;
+    outline: 50px;
+    border-radius: 50px;
+    position: relative;
+    color: black;
+    text-align: center;
+	bottom: 0;
+	font-size: 1rem ;
+  }
+  

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orders Management</title>
+<link rel="stylesheet" type = "text/css" href="Orders.css">
+</head>
+<body>
+
+<div class="container">
+<h1>Orders Management</h1>
+<br><br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Customer Name</th>
+      <th>Order Date</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody id="orderList">
+    <!-- Order list will be inserted here -->
+  </tbody>
+</table>
+
+</div>
+
+<!-- Modal for viewing order details -->
+<div id="orderModal" class="modal">
+<div class="modal-content">
+
+  <center><h2>Order Details</h2><br>
+  
+  <p><strong>Order ID:</strong> <span id="orderId"><input type = text/></span></p><br>
+  <p><strong>Customer Name:</strong> <span id="customerName"><input type = text/></span></p><br>
+  <p><strong>Order Date:</strong> <span id="orderDate"><input type = text/></span></p><br>
+  <p><strong>Status:</strong> <span id="orderStatus"><input type = text/></span></p><br>
+  <button class="btn" onclick="updateStatus()">Update Status</button>
+  </center>
+</div>
+</div>
+
+<script>
+// Mock data for initial order list
+let orders = [
+{ id: 1, customerName: 'John Doe', orderDate: '2024-03-13', status: 'Pending' },
+{ id: 2, customerName: 'Jane Smith', orderDate: '2024-03-12', status: 'Shipped' },
+{ id: 3, customerName: 'Alice Johnson', orderDate: '2024-03-11', status: 'Delivered' }
+];
+
+// Function to display orders in the table
+function displayOrders() {
+const orderList = document.getElementById('orderList');
+orderList.innerHTML = '';
+orders.forEach(order => {
+orderList.innerHTML += `
+  <tr>
+    <td>${order.id}</td>
+    <td>${order.customerName}</td>
+    <td>${order.orderDate}</td>
+    <td>${order.status}</td>
+    <td>
+      <button class="btn" onclick="viewOrderDetails(${order.id})">View Details</button>
+      <button class="btn" onclick="deleteOrder(${order.id})">Delete</button>
+    </td>
+  </tr>
+`;
+});
+}
+
+// Function to open modal for viewing order details
+function viewOrderDetails(id) {
+const order = orders.find(o => o.id === id);
+document.getElementById('orderId').textContent = order.id;
+document.getElementById('customerName').textContent = order.customerName;
+document.getElementById('orderDate').textContent = order.orderDate;
+document.getElementById('orderStatus').textContent = order.status;
+document.getElementById('orderModal').style.display = 'block';
+}
+
+// Function to close modal
+function closeModal() {
+document.getElementById('orderModal').style.display = 'none';
+}
+
+// Function to update order status
+function updateStatus() {
+// Placeholder for updating order status (you can implement your logic here)
+alert('Updating order status...');
+closeModal();
+}
+
+// Function to delete order
+function deleteOrder(id) {
+// Placeholder for deleting order (you can implement your logic here)
+const index = orders.findIndex(o => o.id === id);
+orders.splice(index, 1);
+displayOrders();
+}
+
+// Display initial orders
+displayOrders();
+</script>
+
+</body>
+</html>

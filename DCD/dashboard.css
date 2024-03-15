@@ -1,0 +1,70 @@
+*{
+	margin :0;
+	padding: 0;	
+}
+body
+{
+	background-image:url("https://www.tpi2001.com/upload/article/2019/art201911217_1.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+.container
+ {
+  max-width: 500px;   
+  padding: 15px; 
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  width: 600px;
+  align-items:center; 
+  position: relative;
+  background-color: gray;
+  margin-top: 100px;
+  box-shadow: inset -5px -5px rgba(0,0,0, 0.5);
+  border-radius: 25px;
+  opacity: 0.7;
+  }
+h1 {
+  text-align: center;
+  color:black;
+  border-bottom: 4px soild rgba(255,255,255, 0.5);
+  margin: 10px;
+
+}
+  .metrics {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  .metrics div {
+    text-align: center;
+    padding: 15px;
+    margin: 15%;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background-color:rgba(0.5,0.5,0.5, 0.5);
+    color:whitesmoke;
+    font-size: 1rem ;
+  }
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:rgba(0.5,0.5,0.5, 0.5);
+    color:white;
+    text-decoration: none;
+    border-radius: 15px;
+  }
+  .btn:hover {
+    background-color: navy;
+  }
+  div.transbox {
+    margin: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+  }
+  

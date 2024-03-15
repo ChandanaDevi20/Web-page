@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products Management</title>
+  <link rel="stylesheet" type = "text/css" href="Product.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Products Management</h1>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Stock Quantity</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="productList">
+      <!-- Product list will be inserted here -->
+    </tbody>
+  </table>
+  <br>
+ <center> <button class="btn" onclick="addProduct()">Add Product</button></center>
+</div>
+
+<!-- Modal for adding/editing product -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    
+    <h2>Add/Edit Product</h2><br>
+    
+    <form id="productForm">
+      <label for="name :">Name:</label><br><br>
+      <input type="text" id="name" name="name" required><br><br>
+      <label for="category :">Category:</label><br><br>
+      <input type="text"  name="category" ><br><br>
+      <label for="price : ">Price:</label><br><br>
+      <input type="number" id="price" name="price" min="0" step="0.01" required><br><br>
+      <label for="quantity : ">Stock Quantity:</label><br><br>
+      <input type="number" id="quantity" name="quantity" min="0" required><br><br>
+      <input type="hidden" id="productId"><br>
+      <button type="submit" class="btn">Save</button>
+    
+    </form>
+  </div>
+</div>
+
+<script>
+
+  let products = [
+    { id: 1, name: 'Product 1', category: 'Category A', price: 10.99, quantity: 100 },
+    { id: 2, name: 'Product 2', category: 'Category B', price: 19.99, quantity: 50 },
+    { id: 3, name: 'Product 3', category: 'Category A', price: 15.49, quantity: 75 }
+  ];
+
+  // Function to display products in the table
+  function displayProducts() {
+    const productList = document.getElementById('productList');
+    productList.innerHTML = '';
+    products.forEach(product => {
+      productList.innerHTML += `
+        <tr>
+          <td>${product.name}</td>
+          <td>${product.category}</td>
+          <td>${product.price}</td>
+          <td>${product.quantity}</td>
+          <td>
+            <button class="btn" onclick="editProduct(${product.id})">Edit</button>
+            <button class="btn" onclick="deleteProduct(${product.id})">Delete</button>
+          </td>
+        </tr>
+      `;
+    });
+  }
+
+  // Function to open modal for adding/editing product
+  function openModal() {
+    document.getElementById('productModal').style.display = 'block';
+  }
+
+  // Function to close modal
+  function closeModal() {
+    document.getElementById('productModal').style.display = 'none';
+    document.getElementById('productForm').reset();
+  }
+
+  // Function to add product
+  function addProduct() {
+    openModal();
+    document.getElementById('productForm').onsubmit = function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const category = document.getElementById('category').value;
+      const price = parseFloat(document.getElementById('price').value);
+      const quantity = parseInt(document.getElementById('quantity').value);
+      const newProduct = {
+        id: products.length + 1,
+        name: name,
+        category: category,
+        price: price,
+        quantity: quantity
+      };
+      products.push(newProduct);
+      displayProducts();
+      closeModal();
+    };
+  }
+
+  // Function to edit product
+  function editProduct(id) {
+    const product = products.find(p => p.id === id);
+    document.getElementById('name').value = product.name;
+    document.getElementById('category').value = product.category;
+    document.getElementById('price').value = product.price;
+    document.getElementById('quantity').value = product.quantity;
+    document.getElementById('productId').value = id;
+    openModal();
+    document.getElementById('productForm').onsubmit = function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const category = document.getElementById('category').value;
+      const price = parseFloat(document.getElementById('price').value);
+      const quantity = parseInt(document.getElementById('quantity').value);
+      const index = products.findIndex(p => p.id === id);
+      products[index] = {
+        id: id,
+        name: name,
+        category: category,
+        price: price,
+        quantity: quantity
+      };
+      displayProducts();
+      closeModal();
+    };
+  }
+
+  // Function to delete product
+  function deleteProduct(id) {
+    const index = products.findIndex(p => p.id === id);
+    products.splice(index, 1);
+    displayProducts();
+  }
+
+  // Display initial products
+  displayProducts();
+</script>
+
+</body>
+</html>

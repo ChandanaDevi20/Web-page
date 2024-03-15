@@ -1,0 +1,78 @@
+*{
+	margin :0;
+	padding: 0;	
+}
+body
+{
+	background-image:url("https://png.pngtree.com/thumb_back/fh260/background/20231002/pngtree-d-render-of-an-online-ecommerce-shopping-interface-exploring-the-world-image_13572262.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: black;
+    border-radius: 5px;
+    position: absolute;
+    color: wheat;
+  }
+  h1 {
+    text-align: center;
+    color: #ddd;
+    text-align: center;
+    border-bottom: 4px soild rgba(255,255,255, 0.5);
+    margin: 10px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    margin: 50px;
+  }
+  th {
+    color: white;
+  }
+  .btn {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color:gray;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: auto;
+  }
+  .btn:hover {
+    background-color:navy;
+  }
+  h2{
+  text-align: right;
+  color:whitesmoke;
+  border-bottom: 4px soild rgba(255,255,255, 0.5);
+  margin: 10px;
+  }
+  .modal
+  {
+    text-align: right;
+    position: relative;
+    padding: 25px;
+    border: 50px;
+    outline: 50px;
+    border-radius: 50px;
+    color:wheat;
+    font-size: 1rem ;
+  }
+  

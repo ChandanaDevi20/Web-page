@@ -1,0 +1,58 @@
+.calendar {
+    max-width: 600px;
+    margin: 0 auto;
+}
+body
+{
+	background-image:url("https://www.shutterstock.com/image-illustration/boxes-rewe-logo-shopping-cart-260nw-1721795389.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 110%;
+}
+
+.month {
+    text-align: center;
+    position: relative;
+    padding-top: 30%;
+    
+    padding-left: 40%;
+}
+
+.weekdays {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    list-style-type: none;
+    color: black;
+    padding-left: 40%;
+    
+}
+
+.weekdays li {
+    width: calc(100% / 7);
+    text-align: center;
+    color: black;
+    
+}
+
+.days {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    list-style-type: none;
+    padding-left: 40%;
+    padding-block-end: 5%;
+    
+}
+
+.days li {
+    width: calc(100% / 7);
+    text-align: center;
+    cursor: pointer;
+   
+}
+
+.hidden {
+    display: none;
+}
